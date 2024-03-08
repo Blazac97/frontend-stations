@@ -31,13 +31,14 @@ export const RouteCreatePage: React.FC<IRouteCreatePageProps> = () => {
           onSubmit={async (values) => {
             const normalizedData = {
               ...values,
-              points: values.points.map(
-                ({ name, timeDeparture, timeArrival }: any) => ({
-                  name,
-                  timeDeparture: timeDeparture.toISOString(),
-                  timeArrival: timeArrival.toISOString(),
-                })
-              ),
+              points:
+                values?.points?.map(
+                  ({ name, timeDeparture, timeArrival }: any) => ({
+                    name,
+                    timeDeparture: timeDeparture.toISOString(),
+                    timeArrival: timeArrival.toISOString(),
+                  })
+                ) || [],
             };
             console.log("normalizedData: ", normalizedData);
             await mutateAsync(normalizedData);

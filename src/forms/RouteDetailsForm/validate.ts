@@ -2,6 +2,9 @@ import { IRouteDetailsFormValues } from "./types";
 
 export const validate = (values: IRouteDetailsFormValues) => {
   const { points } = values;
+  if (!points) {
+    return;
+  }
   const pointErrors: {
     name?: string;
     timeArrival?: string;

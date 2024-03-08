@@ -22,7 +22,7 @@ export const RouteEditPage: React.FC<IRouteEditPageProps> = () => {
     return {
       name: data?.data.name || "",
       points:
-        data?.data.points.map((it) => ({
+        data?.data?.points?.map((it) => ({
           id: it.id,
           name: it.name,
           timeArrival: it.timeArrival ? moment(it.timeArrival) : moment(),
@@ -52,13 +52,14 @@ export const RouteEditPage: React.FC<IRouteEditPageProps> = () => {
               const normalizedData = {
                 ...values,
                 id: routeId as any,
-                points: values.points.map(
-                  ({ name, timeDeparture, timeArrival }: any) => ({
-                    name,
-                    timeDeparture: timeDeparture.toISOString(),
-                    timeArrival: timeArrival.toISOString(),
-                  })
-                ),
+                points:
+                  values?.points?.map(
+                    ({ name, timeDeparture, timeArrival }: any) => ({
+                      name,
+                      timeDeparture: timeDeparture.toISOString(),
+                      timeArrival: timeArrival.toISOString(),
+                    })
+                  ) || [],
               };
               console.log("normalizedData: ", normalizedData);
               await mutateAsync(normalizedData);
