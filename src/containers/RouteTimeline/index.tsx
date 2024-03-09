@@ -22,18 +22,40 @@ export enum RouteTimelineItemType {
 const getTimelineItemIcon = (iconType: RouteTimelineItemType) => {
   switch (iconType) {
     case RouteTimelineItemType.arrival:
-      return <TimelineDot />;
+      return (
+        <TimelineDot
+          sx={{
+            backgroundColor: "#4b9fea",
+          }}
+        />
+      );
     case RouteTimelineItemType.departure:
-      return <TimelineDot />;
+      return (
+        <TimelineDot
+          sx={{
+            backgroundColor: "#4b9fea",
+          }}
+        />
+      );
     case RouteTimelineItemType.waiting:
       return (
-        <TimelineDot style={{ margin: 0 }}>
+        <TimelineDot
+          sx={{
+            backgroundColor: "#155fa0",
+          }}
+          style={{ margin: 0 }}
+        >
           <HourglassTopIcon fontSize="small" />
         </TimelineDot>
       );
     case RouteTimelineItemType.in_road:
       return (
-        <TimelineDot style={{ margin: 0 }}>
+        <TimelineDot
+          sx={{
+            backgroundColor: "#1e88e5",
+          }}
+          style={{ margin: 0 }}
+        >
           <AccessTimeIcon fontSize="small" />
         </TimelineDot>
       );
@@ -62,7 +84,13 @@ export const RouteTimelineItem: React.FC<IRouteTimelineItemProps> = ({
 
       <TimelineSeparator>
         {getTimelineItemIcon(iconType)}
-        {connector && <TimelineConnector />}
+        {connector && (
+          <TimelineConnector
+            sx={{
+              backgroundColor: "#4b9fea",
+            }}
+          />
+        )}
       </TimelineSeparator>
 
       <TimelineContent
