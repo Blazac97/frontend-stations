@@ -1,3 +1,4 @@
+#Для корректной работы этого фротнэнд приложения необходимо клонировать репозиторий с бэкэнж частью и запустить их оба. https://github.com/Blazac97/backend-stations 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
